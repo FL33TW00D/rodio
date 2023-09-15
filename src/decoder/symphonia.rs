@@ -39,7 +39,10 @@ impl SymphoniaDecoder {
                 Error::SeekError(_) => {
                     unreachable!("Seek errors should not occur during initialization")
                 }
-                Error::Unsupported(_) => Err(DecoderError::UnrecognizedFormat),
+                Error::Unsupported(e) => {
+                    eprintln!("Unsupported format: {}", e);
+                    Err(DecoderError::UnrecognizedFormat)
+                }
                 Error::LimitError(e) => Err(DecoderError::LimitError(e)),
                 Error::ResetRequired => Err(DecoderError::ResetRequired),
             },

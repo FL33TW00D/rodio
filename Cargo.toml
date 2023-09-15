@@ -42,3 +42,7 @@ quickcheck = "0.9.2"
 [[example]]
 name = "music_m4a"
 required-features = ["symphonia-isomp4", "symphonia-aac"]
+
+[[example]]
+name = "music_webm"
+required-features = ["symphonia-webm", "symphonia-vorbis"]
